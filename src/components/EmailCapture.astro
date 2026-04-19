@@ -1,0 +1,52 @@
+---
+interface Props {
+  id?: string;
+  compact?: boolean;
+  heading?: string;
+  cta?: string;
+}
+
+const {
+  id = 'email-capture',
+  compact = false,
+  heading,
+  cta = 'Join the list',
+} = Astro.props;
+
+const inputId = `${id}-email`;
+const hintId = `${id}-hint`;
+---
+
+<form
+  action="/thank-you"
+  method="get"
+  class:list={['w-full', compact ? '' : 'max-w-xl']}
+  aria-labelledby={heading ? `${id}-heading` : undefined}
+  novalidate
+>
+  {heading && (
+    <h2 id={`${id}-heading`} class="font-display text-2xl font-semibold text-ink sm:text-3xl">
+      {heading}
+    </h2>
+  )}
+
+  <div class:list={['mt-4 flex flex-col gap-3', compact ? 'sm:flex-row' : 'sm:flex-row']}>
+    <label class="sr-only" for={inputId}>Email address</label>
+    <input
+      id={inputId}
+      name="email"
+      type="email"
+      required
+      autocomplete="email"
+      placeholder="you@example.com"
+      aria-describedby={hintId}
+      class="input-base flex-1"
+    />
+    <button type="submit" class="btn-primary whitespace-nowrap">
+      {cta}
+    </button>
+  </div>
+  <p id={hintId} class="mt-2 text-sm text-ink/60">
+    We\u2019ll only email you about Little Joy Books. Unsubscribe anytime.
+  </p>
+</form>

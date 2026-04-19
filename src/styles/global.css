@@ -1,0 +1,61 @@
+@import '@fontsource/fredoka/400.css';
+@import '@fontsource/fredoka/500.css';
+@import '@fontsource/fredoka/600.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    @apply bg-cream text-ink;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased leading-relaxed;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-medium text-ink;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-cocoa;
+    outline-style: solid;
+  }
+
+  ::selection {
+    @apply bg-taupe/40 text-ink;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-cocoa px-6 py-3 font-semibold text-cream shadow-soft transition hover:bg-ink focus-visible:ring-2 focus-visible:ring-cocoa focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-cocoa/30 px-6 py-3 font-semibold text-ink transition hover:bg-oat focus-visible:ring-2 focus-visible:ring-cocoa focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+  }
+
+  .input-base {
+    @apply w-full rounded-full border border-cocoa/20 bg-white/80 px-5 py-3 text-ink placeholder:text-stone focus:border-cocoa focus:outline-none focus:ring-2 focus:ring-cocoa/40;
+  }
+
+  .container-prose {
+    @apply mx-auto w-full max-w-3xl px-5 sm:px-6;
+  }
+
+  .container-wide {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6;
+  }
+}

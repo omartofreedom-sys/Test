@@ -1,0 +1,40 @@
+---
+import EmailCapture from './EmailCapture.astro';
+---
+
+<section class="relative overflow-hidden">
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute -left-24 top-10 h-72 w-72 rounded-full bg-taupe/20 blur-3xl"></div>
+    <div class="absolute -right-16 bottom-0 h-80 w-80 rounded-full bg-oat/70 blur-3xl"></div>
+  </div>
+
+  <div class="container-wide grid items-center gap-12 py-16 sm:py-20 md:grid-cols-2 md:py-24">
+    <div>
+      <p class="inline-flex items-center gap-2 rounded-full bg-oat px-3 py-1 text-xs font-medium uppercase tracking-wider text-cocoa">
+        <span aria-hidden="true">\u2728</span> Pre-launch
+      </p>
+      <h1 class="mt-5 font-display text-4xl font-semibold leading-tight text-ink sm:text-5xl md:text-6xl">
+        Gentle stories for the littlest hearts.
+      </h1>
+      <p class="mt-5 max-w-prose text-lg text-ink/80">
+        Little Joy Books makes warm, affirming picture books for ages 0\u20133. Our first board book,
+        <em>Baby Affirmations</em>, arrives soon. Be the first to read it.
+      </p>
+      <div class="mt-8">
+        <EmailCapture id="hero-capture" />
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="mx-auto aspect-[4/5] w-full max-w-sm rotate-[-2deg] rounded-4xl bg-gradient-to-br from-oat via-cream to-taupe/40 p-8 shadow-soft">
+        <div class="flex h-full flex-col items-center justify-center rounded-3xl border border-cocoa/15 bg-cream/80 p-6 text-center">
+          <p class="font-display text-xs uppercase tracking-[0.3em] text-cocoa">Baby Affirmations</p>
+          <p class="mt-6 font-display text-3xl font-semibold leading-snug text-ink">
+            You are loved.<br />You are safe.<br />You are enough.
+          </p>
+          <p class="mt-8 text-sm text-ink/60">A first book of tiny, tender truths.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

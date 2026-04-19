@@ -1,0 +1,30 @@
+---
+import { site } from '@/content/site';
+import EmailCapture from './EmailCapture.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-24 border-t border-oat/60 bg-oat/40">
+  <div class="container-wide grid gap-12 py-14 md:grid-cols-2">
+    <div>
+      <h2 class="font-display text-2xl font-semibold text-ink">Stay in the loop.</h2>
+      <p class="mt-3 max-w-md text-ink/80">
+        One gentle note a month. Early previews, release dates, and the occasional free printable. No spam, ever.
+      </p>
+    </div>
+    <EmailCapture id="footer-capture" compact />
+  </div>
+
+  <div class="border-t border-oat/70">
+    <div class="container-wide flex flex-col items-start justify-between gap-3 py-6 text-sm text-ink/70 sm:flex-row sm:items-center">
+      <p>&copy; {year} {site.name}. All rights reserved.</p>
+      <nav aria-label="Footer">
+        <ul class="flex gap-5">
+          <li><a class="hover:text-ink" href="/about">About</a></li>
+          <li><a class="hover:text-ink" href="/book/baby-affirmations">The Book</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>

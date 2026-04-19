@@ -1,0 +1,47 @@
+---
+import { book } from '@/content/site';
+---
+
+<section class="container-wide py-16 sm:py-20" aria-labelledby="book-preview-heading">
+  <div class="grid gap-10 md:grid-cols-5 md:gap-14">
+    <div class="md:col-span-2">
+      <p class="text-sm font-semibold uppercase tracking-wider text-cocoa">Our first book</p>
+      <h2 id="book-preview-heading" class="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+        {book.title}
+      </h2>
+      <p class="mt-4 text-ink/80">{book.blurb}</p>
+
+      <dl class="mt-6 grid grid-cols-2 gap-4 text-sm">
+        <div class="rounded-2xl bg-oat/60 p-4">
+          <dt class="text-ink/60">Ages</dt>
+          <dd class="mt-1 font-display text-lg text-ink">{book.ages}</dd>
+        </div>
+        <div class="rounded-2xl bg-oat/60 p-4">
+          <dt class="text-ink/60">Format</dt>
+          <dd class="mt-1 font-display text-lg text-ink">{book.format}</dd>
+        </div>
+        <div class="rounded-2xl bg-oat/60 p-4">
+          <dt class="text-ink/60">Pages</dt>
+          <dd class="mt-1 font-display text-lg text-ink">{book.pages}</dd>
+        </div>
+        <div class="rounded-2xl bg-oat/60 p-4">
+          <dt class="text-ink/60">Release</dt>
+          <dd class="mt-1 font-display text-lg text-ink">{book.releaseWindow}</dd>
+        </div>
+      </dl>
+
+      <a href={`/book/${book.slug}`} class="btn-secondary mt-8">Read a preview</a>
+    </div>
+
+    <div class="md:col-span-3">
+      <ul class="grid gap-4 sm:grid-cols-2">
+        {book.spreads.map((spread) => (
+          <li class="rounded-3xl border border-cocoa/10 bg-cream p-6 shadow-soft">
+            <p class="text-xs font-medium uppercase tracking-wider text-stone">{spread.note}</p>
+            <p class="mt-4 font-display text-2xl leading-snug text-ink">{spread.line}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

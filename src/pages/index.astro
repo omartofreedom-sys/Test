@@ -1,0 +1,13 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/Hero.astro';
+import BookPreview from '@/components/BookPreview.astro';
+import BrandSnippet from '@/components/BrandSnippet.astro';
+import { site } from '@/content/site';
+---
+
+<BaseLayout title={site.name} description={site.description}>
+  <Hero />
+  <BookPreview />
+  <BrandSnippet />
+</BaseLayout>
