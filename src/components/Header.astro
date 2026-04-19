@@ -2,13 +2,26 @@
 import { site, nav } from '@/content/site';
 
 const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+// logo.png = the real brand wordmark (drop it into public/logo.png)
+// Falls back to text if the file isn't there yet.
 ---
 
 <header class="border-b border-oat/60 bg-cream/80 backdrop-blur">
   <div class="container-wide flex items-center justify-between py-4">
-    <a href="/" class="flex items-center gap-2 font-display text-xl font-semibold text-ink" aria-label={`${site.name} home`}>
-      <img src="/logo.svg" alt="" width="32" height="32" class="h-8 w-8" aria-hidden="true" />
-      <span>{site.name}</span>
+    <a href="/" aria-label={`${site.name} home`} class="focus-visible:outline-none">
+      <img
+        src="/logo.png"
+        alt={site.name}
+        width="152"
+        height="48"
+        class="h-10 w-auto [mix-blend-mode:multiply]"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='inline';"
+      />
+      <span
+        class="hidden font-display text-xl font-semibold text-ink"
+        aria-hidden="true"
+      >{site.name}</span>
     </a>
     <nav aria-label="Primary">
       <ul class="flex items-center gap-1 sm:gap-2">
