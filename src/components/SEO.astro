@@ -19,7 +19,7 @@ const {
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url).toString();
 const absoluteImage = new URL(image, Astro.site ?? site.url).toString();
-const fullTitle = title === site.name ? title : `${title} \u2014 ${site.name}`;
+const fullTitle = title === site.name ? title : `${title} — ${site.name}`;
 ---
 
 <title>{fullTitle}</title>

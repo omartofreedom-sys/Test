@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { site, leadMagnet } from '@/content/site';
 
 const shareUrl = site.url;
-const shareText = 'Little Joy Books \u2014 warm, affirming board books for ages 0\u20133. Worth a look.';
+const shareText = 'Little Joy Books — warm, affirming board books for ages 0–3. Worth a look.';
 const twitterHref = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
 const facebookHref = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
 const emailHref = `mailto:?subject=${encodeURIComponent('You might love this')}&body=${encodeURIComponent(`${shareText}\n\n${shareUrl}`)}`;
@@ -11,7 +11,7 @@ const emailHref = `mailto:?subject=${encodeURIComponent('You might love this')}&
 
 <BaseLayout
   title="Thank you"
-  description="You\u2019re on the Little Joy Books list. Check your email for the free printable."
+  description="You’re on the Little Joy Books list. Check your email for the free printable."
   noindex
 >
   <section class="container-prose py-20 text-center sm:py-28">
@@ -21,9 +21,9 @@ const emailHref = `mailto:?subject=${encodeURIComponent('You might love this')}&
       </svg>
     </div>
 
-    <h1 class="mt-6 font-display text-4xl font-semibold sm:text-5xl">You\u2019re on the list.</h1>
+    <h1 class="mt-6 font-display text-4xl font-semibold sm:text-5xl">You’re on the list.</h1>
     <p class="mt-5 text-lg text-ink/80">
-      Thank you for joining us this early. We\u2019ll send a gentle note the day the book goes live \u2014 and nothing in between that doesn\u2019t matter.
+      Thank you for joining us this early. We’ll send a gentle note the day the book goes live — and nothing in between that doesn’t matter.
     </p>
 
     <div class="mx-auto mt-8 max-w-lg rounded-3xl border border-cocoa/15 bg-oat/60 p-6 text-left">
@@ -31,15 +31,15 @@ const emailHref = `mailto:?subject=${encodeURIComponent('You might love this')}&
         Check your email for the free {leadMagnet.name}.
       </p>
       <p class="mt-2 text-ink/80">
-        It\u2019s a printable set of 10 affirmation cards you can tuck into a nursery, a
-        diaper bag, or the side of the fridge. Give it a minute to land \u2014 and peek in
-        your promotions tab if it\u2019s shy.
+        It’s a printable set of 10 affirmation cards you can tuck into a nursery, a
+        diaper bag, or the side of the fridge. Give it a minute to land — and peek in
+        your promotions tab if it’s shy.
       </p>
     </div>
 
     <section class="mt-12" aria-labelledby="share-heading">
       <h2 id="share-heading" class="font-display text-2xl font-semibold text-ink">Tell a friend</h2>
-      <p class="mt-2 text-ink/75">If you know a new parent who\u2019d love this, passing it along is the kindest thing.</p>
+      <p class="mt-2 text-ink/75">If you know a new parent who’d love this, passing it along is the kindest thing.</p>
 
       <ul class="mt-5 flex flex-wrap items-center justify-center gap-3">
         <li>
@@ -73,7 +73,7 @@ const emailHref = `mailto:?subject=${encodeURIComponent('You might love this')}&
       const url = button.getAttribute('data-copy-link') ?? '';
       try {
         await navigator.clipboard.writeText(url);
-        status.textContent = 'Link copied \u2014 thank you for sharing.';
+        status.textContent = 'Link copied — thank you for sharing.';
       } catch {
         status.textContent = url;
       }
