@@ -16,25 +16,25 @@ const description = `${book.title} \u2014 ${book.subtitle} A ${book.format.toLow
           {book.title}
         </h1>
         <p class="mt-4 font-display text-xl text-ink/80">{book.subtitle}</p>
-        <p class="mt-3 text-ink/70">Illustrated by {book.illustrator}.</p>
+        <p class="mt-3 text-ink/80">Illustrated by {book.illustrator}.</p>
 
         <p class="mt-6 max-w-prose text-lg text-ink/80">{book.blurb}</p>
 
         <dl class="mt-8 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
           <div class="rounded-2xl bg-oat/60 p-3">
-            <dt class="text-ink/60">Ages</dt>
+            <dt class="text-ink/80">Ages</dt>
             <dd class="font-display text-base text-ink">{book.ages}</dd>
           </div>
           <div class="rounded-2xl bg-oat/60 p-3">
-            <dt class="text-ink/60">Format</dt>
+            <dt class="text-ink/80">Format</dt>
             <dd class="font-display text-base text-ink">{book.format}</dd>
           </div>
           <div class="rounded-2xl bg-oat/60 p-3">
-            <dt class="text-ink/60">Pages</dt>
+            <dt class="text-ink/80">Pages</dt>
             <dd class="font-display text-base text-ink">{book.pages}</dd>
           </div>
           <div class="rounded-2xl bg-oat/60 p-3">
-            <dt class="text-ink/60">Release</dt>
+            <dt class="text-ink/80">Release</dt>
             <dd class="font-display text-base text-ink">{book.releaseWindow}</dd>
           </div>
         </dl>
@@ -74,7 +74,7 @@ const description = `${book.title} \u2014 ${book.subtitle} A ${book.format.toLow
           <li class="rounded-3xl border border-cocoa/10 bg-cream p-6 shadow-soft">
             <p class="text-xs font-medium uppercase tracking-wider text-stone">Spread {i + 1} \u2014 {spread.note}</p>
             <p class="mt-4 font-display text-2xl leading-snug text-ink">{spread.line}</p>
-            <p class="mt-3 text-sm text-ink/65">{spread.scene}</p>
+            <p class="mt-3 text-sm text-ink/80">{spread.scene}</p>
           </li>
         ))}
       </ol>

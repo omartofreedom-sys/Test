@@ -1,0 +1,57 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/content/site';
+
+const updated = 'April 2026';
+---
+
+<BaseLayout
+  title="Privacy"
+  description="How Little Joy Books handles the email addresses and data you share with us."
+>
+  <article class="container-prose py-16 sm:py-20">
+    <header>
+      <p class="text-sm font-semibold uppercase tracking-wider text-cocoa">Privacy</p>
+      <h1 class="mt-3 font-display text-4xl font-semibold sm:text-5xl">How we handle your data.</h1>
+      <p class="mt-3 text-ink/70">Last updated: {updated}</p>
+    </header>
+
+    <div class="prose prose-ink mt-8 max-w-none space-y-5 text-ink/85">
+      {/* PLACEHOLDER \u2014 replace with your final, lawyer-reviewed privacy policy. */}
+      <p>
+        This page describes how {site.name} collects, uses, and protects your information. We
+        keep it short on purpose.
+      </p>
+
+      <h2 class="font-display text-2xl font-semibold text-ink">What we collect</h2>
+      <p>
+        When you join our email list, we collect your email address and the date you signed up.
+        We do not ask for your name, address, or anything else.
+      </p>
+
+      <h2 class="font-display text-2xl font-semibold text-ink">How we use it</h2>
+      <p>
+        Only to send you Little Joy Books updates \u2014 the free printable, release news, and
+        the occasional reader note. We don\u2019t sell, rent, or share your email with anyone.
+      </p>
+
+      <h2 class="font-display text-2xl font-semibold text-ink">Your choices</h2>
+      <p>
+        Every email has an unsubscribe link. You can also ask us to delete your data at any time
+        by replying to any email.
+      </p>
+
+      <h2 class="font-display text-2xl font-semibold text-ink">Analytics</h2>
+      <p>
+        We use Cloudflare Web Analytics, which is cookie-free and doesn\u2019t fingerprint or
+        profile visitors. No personal data is stored.
+      </p>
+
+      <h2 class="font-display text-2xl font-semibold text-ink">Contact</h2>
+      <p>
+        Questions? Reply to any email from us, or reach out via the contact form on our parent
+        imprint\u2019s site.
+      </p>
+    </div>
+  </article>
+</BaseLayout>
