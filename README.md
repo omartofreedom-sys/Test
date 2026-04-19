@@ -38,7 +38,24 @@ are solid-color cream placeholders. Replace with real artwork before launch.
 The SVG logo (`public/logo.svg`, `public/favicon.svg`) is a simple stand-in
 — swap in the brand artwork when available.
 
-## Email capture
+## Email capture (MailerLite)
 
-Forms currently `GET /thank-you` with the email in the query string. Wire up to
-your ESP (ConvertKit, Buttondown, Mailchimp) by swapping the form `action`.
+The site uses MailerLite's Universal embedded-form script. The universal
+snippet (with account `2277770`) is loaded once in `BaseLayout.astro`.
+`EmailCapture.astro` just renders a `<div class="ml-embedded" data-form="...">`
+and MailerLite injects the form at runtime.
+
+To wire it up:
+
+1. Build your embedded form in the MailerLite dashboard.
+2. In the dashboard form settings, enable:
+   - GDPR consent checkbox (Settings -> "GDPR")
+   - Honeypot / bot protection (enabled by default on MailerLite forms)
+   - "After signup" behavior -> redirect to `/thank-you`
+   - Automation to deliver the Baby Affirmation Cards printable
+3. Copy the `data-form` value from the embed snippet.
+4. Set `PUBLIC_MAILERLITE_FORM_CODE` in `.env` to that value.
+
+Styling for the injected form lives under `.ljb-mailerlite` in `global.css`
+and is scoped with `!important` because MailerLite inlines most of its own
+styles.
