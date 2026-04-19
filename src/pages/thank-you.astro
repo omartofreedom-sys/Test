@@ -1,27 +1,82 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site, leadMagnet } from '@/content/site';
+
+const shareUrl = site.url;
+const shareText = 'Little Joy Books \u2014 warm, affirming board books for ages 0\u20133. Worth a look.';
+const twitterHref = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+const facebookHref = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+const emailHref = `mailto:?subject=${encodeURIComponent('You might love this')}&body=${encodeURIComponent(`${shareText}\n\n${shareUrl}`)}`;
 ---
 
 <BaseLayout
   title="Thank you"
-  description="You\u2019re on the Little Joy Books list. We\u2019ll be in touch soon."
+  description="You\u2019re on the Little Joy Books list. Check your email for the free printable."
   noindex
 >
-  <section class="container-prose py-24 text-center sm:py-32">
+  <section class="container-prose py-20 text-center sm:py-28">
     <div aria-hidden="true" class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-oat">
       <svg viewBox="0 0 24 24" class="h-10 w-10 text-cocoa" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M20 6 9 17l-5-5" />
       </svg>
     </div>
+
     <h1 class="mt-6 font-display text-4xl font-semibold sm:text-5xl">You\u2019re on the list.</h1>
     <p class="mt-5 text-lg text-ink/80">
-      Thank you for joining us at the very beginning. We\u2019ll send a gentle note when there\u2019s
-      something lovely to share \u2014 a cover reveal, a spread, a release date.
+      Thank you for joining us this early. We\u2019ll send a gentle note the day the book goes live \u2014 and nothing in between that doesn\u2019t matter.
     </p>
 
-    <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+    <div class="mx-auto mt-8 max-w-lg rounded-3xl border border-cocoa/15 bg-oat/60 p-6 text-left">
+      <p class="font-display text-lg font-semibold text-ink">
+        Check your email for the free {leadMagnet.name}.
+      </p>
+      <p class="mt-2 text-ink/80">
+        It\u2019s a printable set of 10 affirmation cards you can tuck into a nursery, a
+        diaper bag, or the side of the fridge. Give it a minute to land \u2014 and peek in
+        your promotions tab if it\u2019s shy.
+      </p>
+    </div>
+
+    <section class="mt-12" aria-labelledby="share-heading">
+      <h2 id="share-heading" class="font-display text-2xl font-semibold text-ink">Tell a friend</h2>
+      <p class="mt-2 text-ink/75">If you know a new parent who\u2019d love this, passing it along is the kindest thing.</p>
+
+      <ul class="mt-5 flex flex-wrap items-center justify-center gap-3">
+        <li>
+          <a class="btn-secondary" href={twitterHref} target="_blank" rel="noopener noreferrer">Share on X</a>
+        </li>
+        <li>
+          <a class="btn-secondary" href={facebookHref} target="_blank" rel="noopener noreferrer">Share on Facebook</a>
+        </li>
+        <li>
+          <a class="btn-secondary" href={emailHref}>Email a friend</a>
+        </li>
+        <li>
+          <button type="button" data-copy-link={shareUrl} class="btn-secondary">Copy link</button>
+        </li>
+      </ul>
+      <p id="copy-status" class="mt-3 text-sm text-ink/60" role="status" aria-live="polite"></p>
+    </section>
+
+    <div class="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
       <a href="/" class="btn-secondary">Back to home</a>
       <a href="/book/baby-affirmations" class="btn-primary">Peek at the book</a>
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const button = document.querySelector('[data-copy-link]');
+  const status = document.getElementById('copy-status');
+  if (button && status) {
+    button.addEventListener('click', async () => {
+      const url = button.getAttribute('data-copy-link') ?? '';
+      try {
+        await navigator.clipboard.writeText(url);
+        status.textContent = 'Link copied \u2014 thank you for sharing.';
+      } catch {
+        status.textContent = url;
+      }
+    });
+  }
+</script>

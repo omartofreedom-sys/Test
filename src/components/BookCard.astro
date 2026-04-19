@@ -1,0 +1,49 @@
+---
+import { book } from '@/content/site';
+
+interface Props {
+  variant?: 'default' | 'compact';
+  showMeta?: boolean;
+  href?: string | null;
+}
+
+const { variant = 'default', showMeta = true, href = `/book/${book.slug}` } = Astro.props;
+
+const WrapperTag = href ? 'a' : 'div';
+const wrapperProps = href
+  ? { href, 'aria-label': `${book.title} \u2014 read more` }
+  : {};
+---
+
+<WrapperTag
+  {...wrapperProps}
+  class:list={[
+    'group block',
+    href ? 'focus-visible:outline-none' : '',
+  ]}
+>
+  <div class="relative mx-auto w-full max-w-sm">
+    <div class="pointer-events-none absolute -inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-br from-taupe/20 via-cream to-oat blur-xl" aria-hidden="true"></div>
+    <div class="overflow-hidden rounded-3xl border border-cocoa/10 bg-cream shadow-soft transition group-hover:-translate-y-0.5 group-hover:shadow-lg">
+      <img
+        src={book.cover}
+        alt={book.coverAlt}
+        width="800"
+        height="800"
+        loading="lazy"
+        decoding="async"
+        class="aspect-square w-full object-cover"
+      />
+    </div>
+  </div>
+
+  {showMeta && (
+    <div class:list={['mt-5 text-center', variant === 'compact' ? '' : 'sm:text-left']}>
+      <p class="text-xs font-semibold uppercase tracking-wider text-cocoa">{book.status}</p>
+      <p class="mt-1 font-display text-2xl font-semibold text-ink">{book.title}</p>
+      <p class="mt-1 text-sm text-ink/70">
+        {book.format} \u00B7 Ages {book.ages} \u00B7 {book.releaseWindow}
+      </p>
+    </div>
+  )}
+</WrapperTag>

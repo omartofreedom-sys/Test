@@ -1,13 +1,57 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Hero from '@/components/Hero.astro';
-import BookPreview from '@/components/BookPreview.astro';
-import BrandSnippet from '@/components/BrandSnippet.astro';
-import { site } from '@/content/site';
+import BookCard from '@/components/BookCard.astro';
+import ValueProp from '@/components/ValueProp.astro';
+import { site, book, valueProps } from '@/content/site';
 ---
 
 <BaseLayout title={site.name} description={site.description}>
   <Hero />
-  <BookPreview />
-  <BrandSnippet />
+
+  <section class="container-wide py-16 sm:py-20" aria-labelledby="meet-book-heading">
+    <div class="grid gap-12 md:grid-cols-5 md:gap-14">
+      <div class="md:col-span-2">
+        <BookCard showMeta={false} />
+      </div>
+      <div class="md:col-span-3">
+        <p class="text-sm font-semibold uppercase tracking-wider text-cocoa">Meet our first book</p>
+        <h2 id="meet-book-heading" class="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+          {book.title}
+        </h2>
+        <p class="mt-4 text-lg text-ink/80">{book.blurb}</p>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-2">
+          {book.spreads.slice(0, 2).map((spread) => (
+            <figure class="rounded-3xl border border-cocoa/10 bg-cream p-6 shadow-soft">
+              <figcaption class="text-xs font-medium uppercase tracking-wider text-stone">{spread.note}</figcaption>
+              <blockquote class="mt-3 font-display text-2xl leading-snug text-ink">
+                {spread.line}
+              </blockquote>
+              <p class="mt-3 text-sm text-ink/65">{spread.scene}</p>
+            </figure>
+          ))}
+        </div>
+
+        <a href={`/book/${book.slug}`} class="btn-secondary mt-8">See inside the book</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-oat/50 py-16 sm:py-20" aria-labelledby="why-heading">
+    <div class="container-wide">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-cocoa">Why Little Joy Books</p>
+        <h2 id="why-heading" class="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+          Books that feel like a hand on the back of the head.
+        </h2>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {valueProps.map((prop) => (
+          <ValueProp title={prop.title} body={prop.body} icon={prop.icon} />
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>

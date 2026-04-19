@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import EmailCapture from '@/components/EmailCapture.astro';
+import { site } from '@/content/site';
 ---
 
 <BaseLayout
   title="About"
-  description="The story behind Little Joy Books \u2014 a tiny imprint making gentle picture books for ages 0\u20133."
+  description="The story behind Little Joy Books \u2014 a small imprint making warm, affirming board books for ages 0\u20133."
 >
   <article class="container-prose py-16 sm:py-20">
     <header>
@@ -13,24 +14,55 @@ import EmailCapture from '@/components/EmailCapture.astro';
       <h1 class="mt-3 font-display text-4xl font-semibold sm:text-5xl">A quiet imprint with a simple aim.</h1>
     </header>
 
-    <div class="prose prose-ink mt-8 max-w-none space-y-5 text-lg text-ink/85">
+    <section class="mt-10" aria-labelledby="origin-heading">
+      <h2 id="origin-heading" class="font-display text-2xl font-semibold text-ink">Our origin story</h2>
+      <div class="mt-4 space-y-5 text-lg text-ink/85">
+        {/* PLACEHOLDER \u2014 replace with the 150-word origin story you\u2019ll paste in. */}
+        <p>
+          Little Joy Books began where most small things do: on the living-room floor, at
+          the end of a long day, with a baby in our laps and a stack of board books that
+          almost \u2014 but not quite \u2014 said what we wanted them to say.
+        </p>
+        <p>
+          We wanted a book that felt less like a toy and more like a hand on the back of
+          the head. Something soft to say when words felt hard. Something that reflected
+          every baby we knew, not just some of them. So we set out to make one.
+        </p>
+        <p>
+          We\u2019re a tiny team of two \u2014 a writer, an illustrator, and a lot of tea.
+          Our first book, <em>Baby Affirmations</em>, is the one we wish we\u2019d had on
+          day one. We hope it finds its way to a floor near you.
+        </p>
+      </div>
+    </section>
+
+    <section class="mt-12" aria-labelledby="different-heading">
+      <h2 id="different-heading" class="font-display text-2xl font-semibold text-ink">What makes us different</h2>
+      <ul class="mt-4 space-y-4 text-ink/85">
+        <li>
+          <strong class="font-display text-ink">Diverse casts by default.</strong>
+          Every book shows a range of skin tones, hair textures, families, and abilities \u2014 so every little reader sees themselves.
+        </li>
+        <li>
+          <strong class="font-display text-ink">Research-informed words.</strong>
+          We work with early-childhood educators to make sure our affirmations are developmentally right, not just cute.
+        </li>
+        <li>
+          <strong class="font-display text-ink">Made to be held.</strong>
+          Chunky board pages, rounded corners, generous white space. Designed for small hands and sleepy laps.
+        </li>
+      </ul>
+    </section>
+
+    <aside class="mt-12 rounded-3xl border border-cocoa/15 bg-oat/50 p-6 text-ink/85">
       <p>
-        Little Joy Books began the way most small things do: on the floor, with a baby, at the end
-        of a long day. We wanted a book that felt less like a toy and more like a hand on the back
-        of the head. Something soft to say when words felt hard.
+        Little Joy Books is a sister imprint to
+        <a class="font-semibold text-cocoa underline-offset-4 hover:underline" href={site.parentImprint.url}>
+          {site.parentImprint.name}
+        </a>,
+        our first imprint making money-smart, wonder-filled books for older kids. Same studio, same soft heart \u2014 different shelf.
       </p>
-      <p>
-        So we started making them \u2014 board books for ages 0\u20133, written for the grown-ups
-        reading aloud as much as for the little ones in their laps. Our first title,
-        <em>Baby Affirmations</em>, is a short cycle of tiny, tender truths: you are loved, you
-        are safe, you are kind, you are enough.
-      </p>
-      <p>
-        We\u2019re an independent studio of two, still in the pre-launch quiet. If what we\u2019re
-        making sounds like something you\u2019d want on your shelf, leave your email below and
-        we\u2019ll tell you when the first copies are ready.
-      </p>
-    </div>
+    </aside>
 
     <div class="mt-12 rounded-4xl bg-oat/60 p-8">
       <EmailCapture id="about-capture" heading="Read it first." />

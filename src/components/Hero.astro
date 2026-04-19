@@ -1,5 +1,7 @@
 ---
 import EmailCapture from './EmailCapture.astro';
+import BookCard from './BookCard.astro';
+import { leadMagnet } from '@/content/site';
 ---
 
 <section class="relative overflow-hidden">
@@ -11,30 +13,25 @@ import EmailCapture from './EmailCapture.astro';
   <div class="container-wide grid items-center gap-12 py-16 sm:py-20 md:grid-cols-2 md:py-24">
     <div>
       <p class="inline-flex items-center gap-2 rounded-full bg-oat px-3 py-1 text-xs font-medium uppercase tracking-wider text-cocoa">
-        <span aria-hidden="true">\u2728</span> Pre-launch
+        <span aria-hidden="true">*</span> Pre-launch
       </p>
       <h1 class="mt-5 font-display text-4xl font-semibold leading-tight text-ink sm:text-5xl md:text-6xl">
-        Gentle stories for the littlest hearts.
+        Little words.<br />Big hearts.
       </h1>
       <p class="mt-5 max-w-prose text-lg text-ink/80">
-        Little Joy Books makes warm, affirming picture books for ages 0\u20133. Our first board book,
-        <em>Baby Affirmations</em>, arrives soon. Be the first to read it.
+        Warm, affirming board books for ages 0\u20133. Our first title,
+        <em>Baby Affirmations</em>, is almost here \u2014 and we\u2019d love you to read it first.
       </p>
       <div class="mt-8">
-        <EmailCapture id="hero-capture" />
+        <EmailCapture
+          id="hero-capture"
+          description={leadMagnet.promise}
+        />
       </div>
     </div>
 
-    <div class="relative">
-      <div class="mx-auto aspect-[4/5] w-full max-w-sm rotate-[-2deg] rounded-4xl bg-gradient-to-br from-oat via-cream to-taupe/40 p-8 shadow-soft">
-        <div class="flex h-full flex-col items-center justify-center rounded-3xl border border-cocoa/15 bg-cream/80 p-6 text-center">
-          <p class="font-display text-xs uppercase tracking-[0.3em] text-cocoa">Baby Affirmations</p>
-          <p class="mt-6 font-display text-3xl font-semibold leading-snug text-ink">
-            You are loved.<br />You are safe.<br />You are enough.
-          </p>
-          <p class="mt-8 text-sm text-ink/60">A first book of tiny, tender truths.</p>
-        </div>
-      </div>
+    <div class="md:justify-self-end">
+      <BookCard showMeta={false} href={null} />
     </div>
   </div>
 </section>
